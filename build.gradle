@@ -1,0 +1,31 @@
+group 'test-netty'
+version '1.0-SNAPSHOT'
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.github.jengelman.gradle.plugins:shadow:2.0.2'
+    }
+}
+
+apply plugin: 'com.github.johnrengelman.shadow'
+apply plugin: 'java'
+apply plugin: 'application'
+
+mainClassName = 'Main'
+
+sourceCompatibility = 9
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.slf4j:slf4j-android:1.7.25'
+    compile 'com.google.code.findbugs:jsr305:3.0.2'
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.8.11.1'
+    compile 'io.projectreactor.ipc:reactor-netty:0.7.5.RELEASE'
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
